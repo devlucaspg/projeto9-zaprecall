@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export default function Footer({counter, deckLength, iconeIndex, iconeCerto, iconeErrado, iconeQuase}) {
+/* export default function Footer({counter, deckLength, iconeIndex, iconeCerto, iconeErrado, iconeQuase}) {
     if (counter !== deckLength) {    
         return (
             <ConteinerFooter data-identifier="flashcard-counter">
@@ -21,6 +21,14 @@ export default function Footer({counter, deckLength, iconeIndex, iconeCerto, ico
             </ConteinerFooter>
         );
     }
+} */
+
+export default function Footer({counter, deckLength}) {
+        return (
+        <ConteinerFooter data-identifier="flashcard-counter">
+            <p>{counter}/{deckLength} CONCLUÍDOS</p>
+        </ConteinerFooter>
+    );
 }
 
 const ConteinerFooter = styled.div`
