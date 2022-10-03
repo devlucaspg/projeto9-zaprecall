@@ -47,8 +47,6 @@ export default function Flashcard({card, index, counter, setCounter, setIconeInd
         );
     }
 
-    console.log(iconeIndex);
-
     if (status === "answered") {
         return (
             <CardAnswered cor={colorText} data-identifier="flashcard-index-item">
