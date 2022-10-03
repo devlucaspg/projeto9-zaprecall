@@ -1,19 +1,37 @@
-// import {useState} from "react"
+import {useState} from "react"
 import styled from "styled-components"
 import GlobalStyle from "./GlobalStyle"
 import Header from "./Header"
 import Deck from "./Deck"
 import Footer from "./Footer"
 import deckObject from "./deckObject"
-
+import Start from "./Start"
+import iconeCerto from "../img/icone_certo.png";
+import iconeErrado from "../img/icone_errado.png";
+import iconeQuase from "../img/icone_quase.png";
 
 export default function App() {
-    return (
+    const [started, setStarted] = useState(false)
+    const [counter, setCounter] = useState(0);
+    const [iconeIndex, setIconeIndex] = useState([]);
+    const deckLength = deckObject.length;
+
+    if (started === false) {
+        return (
+            <ConteinerApp>
+                <GlobalStyle />
+                <Start setStarted={setStarted}/>
+            </ConteinerApp>
+        );
+    }
+
+    else 
+        return (
         <ConteinerApp>
             <GlobalStyle />
             <Header />
-            <Deck deckObject={deckObject}/>
-            <Footer />
+            <Deck deckObject={deckObject} counter={counter} setCounter={setCounter} setIconeIndex={setIconeIndex} iconeIndex={iconeIndex} iconeCerto={iconeCerto} iconeErrado={iconeErrado} iconeQuase={iconeQuase}/>
+            <Footer counter={counter} deckLength={deckLength} iconeIndex={iconeIndex} iconeCerto={iconeCerto} iconeErrado={iconeErrado} iconeQuase={iconeQuase}/>
         </ConteinerApp>
     );
 }
